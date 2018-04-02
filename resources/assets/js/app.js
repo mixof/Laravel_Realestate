@@ -15,8 +15,20 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.vuelidate=require('vuelidate');
+Vue.use(window.vuelidate.default);
+const { required, minLength } = window.validators;
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        text: ''
+    },
+    validations: {
+        text: {
+            required,
+            minLength: minLength(5)
+        }
+    }
 });

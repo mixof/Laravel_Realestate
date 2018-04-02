@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cabinet', 'CabinetController@index')->name('cabinet');
+Route::get('/cabinet/properties/add', function (){
+
+    return  view('cabinet.propertyAdd');
+});
+Route::post('/cabinet/properties/add', 'CabinetController@addProperty')->name('addproperty');
+Route::get('/cabinet/plans', 'CabinetController@plans')->name('plans');
